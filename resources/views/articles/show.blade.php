@@ -2,10 +2,4 @@
 
 @section('content')
 
-<h1>Contact Me!</h1>
-
-
-	
-
-@stop 
-
+<h1> {{ $article->title }} </h1>
