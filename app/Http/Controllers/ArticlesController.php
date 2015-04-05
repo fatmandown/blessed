@@ -3,8 +3,9 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Article;
-Use Carbon\Carbon;
-Use Request;
+use App\Http\Requests\ArticleRequest;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class ArticlesController extends Controller {
 
@@ -31,7 +32,7 @@ class ArticlesController extends Controller {
 	}
 
 
-	public function store(Requests\CreateArticleRequest $request) {
+	public function store(ArticleRequest $request) {
 
 		//validation?
 
@@ -46,5 +47,23 @@ class ArticlesController extends Controller {
 		//return view('articles.index', compact('input');
 		return redirect('articles');
 	}
+
+
+	public function edit($id) {
+		$article= Article::findOrFail($id);
+
+		return view('articles.edit', compact('article'));
+
+	}
+
+	public function update($id, ArticleRequest $request) {
+
+		$article = Article::findOrFail($id);
+
+		$article->update($request->all());
+
+		return redirect('articles');
+	}
+
 
 }
