@@ -3,8 +3,8 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Article;
-Use Request;
 Use Carbon\Carbon;
+Use Request;
 
 class ArticlesController extends Controller {
 
@@ -31,10 +31,13 @@ class ArticlesController extends Controller {
 	}
 
 
-	public function store() {
+	public function store(Requests\CreateArticleRequest $request) {
+
+		//validation?
 
 
-		$input = Request::all();
+
+		$input = $request->all();
 		$input['published_at'] = Carbon::now();
 		Article::create($input);
 
