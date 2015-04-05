@@ -10,9 +10,8 @@ class ArticlesController extends Controller {
 
 	//get all articles
 	public function index() {
-	$articles = Article::latest('published_at')->get();
-
-	return view('articles.index', compact('articles'));
+		$articles = Article::latest('published_at')->published()->get();
+		return view('articles.index', compact('articles'));
 
 	}
 

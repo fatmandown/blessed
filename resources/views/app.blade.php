@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-
+	{!! HTML::style('css/unsemantic.css') !!}
 	</head>
 	
 
