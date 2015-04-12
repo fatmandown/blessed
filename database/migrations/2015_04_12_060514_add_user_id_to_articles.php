@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddExcerptToArticlesTable extends Migration {
+class AddUserIdToArticles extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -14,8 +14,8 @@ class AddExcerptToArticlesTable extends Migration {
 	{
 		Schema::table('articles', function(Blueprint $table)
 		{
-			//
-			$table->text('excerpt')->nullable();
+			$table->string('user_id');
+
 		});
 	}
 
@@ -28,7 +28,7 @@ class AddExcerptToArticlesTable extends Migration {
 	{
 		Schema::table('articles', function(Blueprint $table)
 		{
-			$table->dropColumn('excerpt');
+			//
 		});
 	}
 

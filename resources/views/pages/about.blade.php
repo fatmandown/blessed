@@ -1,4 +1,4 @@
-@extends('app')
+@extends('master')
 @section('content')
 	<h2>About page</h2>
 	Well, here we are.

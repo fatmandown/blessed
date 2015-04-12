@@ -11,12 +11,17 @@ class ArticlesController extends Controller {
 
 	//get all articles
 	public function index() {
+
+
+
 		$articles = Article::latest('published_at')->published()->get();
 		return view('articles.index', compact('articles'));
 
 	}
 
-
+	public function __construct() {
+		$this->middleware('auth', ['only' => 'create'] );
+	}
 
 	public function show($id) {
 
@@ -37,10 +42,9 @@ class ArticlesController extends Controller {
 		//validation?
 
 
+		$article = new Article($request->all());
 
-		$input = $request->all();
-		$input['published_at'] = Carbon::now();
-		Article::create($input);
+		\Auth::user()->articles()->save($article);
 
 
 
