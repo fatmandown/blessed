@@ -1,17 +1,32 @@
 
+html, body {
+	height:100%;
+}
+
+.wrapper {
+	min-height: 100%;
+	height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+	height: 100%;
+	margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
+
+}
+
+
 
 header {
 	width:100%;
-	height:140px;
+	height:155px;
 	background:url('../img/b.png');
 	color:white;
 }
 
+footer, .push {
+	height:155px;
+}
+
+
+
 footer {
-	position:absolute;
-	bottom:0;
-	left:0;
-	height:140px;
 	width:100%;
 	background:url('../img/b.png');
 }

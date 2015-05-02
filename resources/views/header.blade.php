@@ -10,10 +10,9 @@
 	{!! HTML::style('css/unsemantic.css') !!}
 	{!! HTML::style('css/style.css') !!}
 	{!! HTML::style('css/animate.css') !!}
-	{!! HTML::script('//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js') !!}
+	{!! HTML::script('scripts/jquery-2.1.3.min.js') !!}
 	{!! HTML::script('scripts/header.js') !!}
 	{!! HTML::style('//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css') !!}
-	{!! HTML::style('http://fonts.googleapis.com/css?family=Holtwood+One+SC') !!}
 
 	</head>
 	

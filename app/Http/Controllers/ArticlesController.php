@@ -20,12 +20,10 @@ class ArticlesController extends Controller {
 	}
 
 	public function __construct() {
-		$this->middleware('auth', ['only' => 'create'] );
+		$this->middleware('auth', ['except' => ['index'=>'show']] );
 	}
 
-	public function show($id) {
-
-		$article = Article::findOrFail($id);
+	public function show(Article $article) {
 
 		return view('articles.show', compact('article'));
 
@@ -41,20 +39,19 @@ class ArticlesController extends Controller {
 
 		//validation?
 
-
 		$article = new Article($request->all());
 
-		\Auth::user()->articles()->save($article);
 
+		\Auth::user()->articles()->create($article);
 
+		\Session::flash('flash_message', 'Your article "' . $request->input('title') . '" has been created!');
 
 		//return view('articles.index', compact('input');
 		return redirect('articles');
 	}
 
 
-	public function edit($id) {
-		$article= Article::findOrFail($id);
+	public function edit(Article $article) {
 
 		return view('articles.edit', compact('article'));
 

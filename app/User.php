@@ -31,6 +31,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
+	public function isATeamManager() {
+
+		return true;
+	}
+
 	
 	public function articles() {
 
